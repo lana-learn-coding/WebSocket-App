@@ -1,6 +1,8 @@
 package lana.application.controller;
 
+import lana.application.model.Group;
 import lana.application.model.User;
+import lana.application.service.GroupService;
 import lana.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,17 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController implements Serializable {
     private UserService userService;
+    private GroupService groupService;
 
     @Autowired
-    public void setUserService(UserService userService) {
+    public UserController(UserService userService, GroupService groupService) {
         this.userService = userService;
+        this.groupService = groupService;
     }
+
 
     @ModelAttribute
     public User setUser() {

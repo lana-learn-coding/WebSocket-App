@@ -13,7 +13,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "users_group",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "group_id")}
+    )
     private List<Group> groups;
 
     private String username;

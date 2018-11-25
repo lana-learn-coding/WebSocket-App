@@ -6,15 +6,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-    <script src="/static/class.js"></script>
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-
+    <script src="/class.js"></script>
+    <script src ="/testScript.js"></script>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<h1 id="hide">this sould hide</h1>
+<!--/*@thymesVar id="message" type="lana.application.model.Message"*/-->
+<form method="post" th:object="${message}">
+<input type="text" th:field="*{user}">
+<input type="text" th:field="*{group}">
+<input type="text" th:field="*{content}">
+    <input type="submit" value="ok">
+</form>
 </body>
 </html>

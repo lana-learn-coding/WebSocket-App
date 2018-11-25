@@ -1,10 +1,9 @@
-
 class Message {
-    constructor(group, username, content) {
+    constructor(group, user, content) {
         this.id = null;
         this.content = content;
         this.group = group;
-        this.user = username;
+        this.user = user;
     }
 
     toString() {
