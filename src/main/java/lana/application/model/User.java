@@ -13,6 +13,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Group> groups;
+
     private String username;
 
     private String password;
@@ -50,6 +53,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
 
     public void passwordRemoval() {

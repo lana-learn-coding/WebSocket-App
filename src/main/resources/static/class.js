@@ -1,3 +1,4 @@
+
 class Message {
     constructor(group, username, content) {
         this.id = null;
@@ -55,5 +56,4 @@ class User {
         user.id = jsonObject.id;
         return user;
     }
-
 }

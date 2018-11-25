@@ -14,6 +14,9 @@ public class Group {
     @OneToMany(mappedBy = "group")
     private List<Message> messages;
 
+    @ManyToMany(mappedBy = "groups")
+    private List<User> users;
+
     private String name;
 
     public Group() {
@@ -45,5 +48,13 @@ public class Group {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

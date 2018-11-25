@@ -9,4 +9,8 @@ public class RootController {
     public String rootHandle() {
         return "redirect:/user";
     }
+    @GetMapping("/test")
+    public String testURL(){
+        return "index";
+    }
 }
