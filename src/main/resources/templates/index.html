@@ -6,9 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-    <script src="/class.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/class.js"></script>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
 <body>
-<h1 align="center">Hello World !</h1>
+<h1 th:text="${user.password+'-'+user.username}"></h1>
+<br><br><br>
+<th:block th:each="usr : ${users}">
+    <i th:text="${'['+usr.username+'-'+usr.password+']'}"></i>
+    <br>
+</th:block>
 </body>
 </html>

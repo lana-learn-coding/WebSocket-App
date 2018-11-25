@@ -3,7 +3,7 @@ class Message {
         this.id = null;
         this.content = content;
         this.group = group;
-        this.username = username;
+        this.user = username;
     }
 
     toString() {
@@ -12,7 +12,7 @@ class Message {
 
     static parse(jsonObject) {
         let message = new Message(
-            jsonObject.username,
+            jsonObject.user,
             jsonObject.content,
             jsonObject.group,
         );
@@ -36,4 +36,24 @@ class Group {
         group.id = jsonObject.id;
         return group;
     }
+}
+
+class User {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password || null;
+        this.id = null;
+    }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    static parse(jsonObject) {
+        let user = new User();
+        user.username = jsonObject.username;
+        user.id = jsonObject.id;
+        return user;
+    }
+
 }

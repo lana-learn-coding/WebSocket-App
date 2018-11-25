@@ -11,4 +11,6 @@ public interface MessageRepo extends CrudRepository<Message, Integer> {
     List<Message> findAll();
 
     List<Message> findAllByGroupId(int id);
+
+    List<Message> findAllByUserId(int id);
 }

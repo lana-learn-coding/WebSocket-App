@@ -17,9 +17,15 @@ public class MessageServiceImpl implements MessageService {
         this.messageRepo = messageRepo;
     }
 
+    //--------------------------------------------------
     @Override
     public List<Message> findAll() {
         return messageRepo.findAll();
+    }
+
+    @Override
+    public List<Message> findByUser(int userId) {
+        return messageRepo.findAllByUserId(userId);
     }
 
     @Override
@@ -32,6 +38,7 @@ public class MessageServiceImpl implements MessageService {
         return messageRepo.findById(id).orElse(null);
     }
 
+    //--------------------------------------
     @Override
     public void save(Message message) {
         messageRepo.save(message);

@@ -13,16 +13,13 @@ public class Message {
     @JoinColumn
     private Group group;
 
-    private String username;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private User user;
 
     private String content;
 
     public Message() {
-    }
-
-    public Message(String username, String content) {
-        this.username = username;
-        this.content = content;
     }
 
     public int getId() {
@@ -41,19 +38,19 @@ public class Message {
         this.group = group;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

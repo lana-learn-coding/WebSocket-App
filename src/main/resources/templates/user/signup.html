@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="/user.css">
+    <script src="/class.js"></script>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="text-align: center">
+<div style="text-align: center">
+    <form class="form-group" method="post" th:object="${user}">
+        <h2>Sign Up</h2>
+        <br>
+        <input class="form-control" type="text" th:field="*{username}" placeholder="username">
+        <br>
+        <input class="form-control" type="password" th:field="*{password}" placeholder="password">
+        <br>
+        <a class="btn btn-info" href="/user/login">Return</a>
+        <input type="submit" class="btn btn-primary" value="Sign Up"
+               style="margin-left:10px">
+    </form>
+</div>
+</body>
+</html>

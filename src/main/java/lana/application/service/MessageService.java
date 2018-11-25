@@ -8,6 +8,8 @@ public interface MessageService {
 
     List<Message> findAll();
 
+    List<Message> findByUser(int userId);
+
     List<Message> findByGroup(int groupId);
 
     Message findById(int id);

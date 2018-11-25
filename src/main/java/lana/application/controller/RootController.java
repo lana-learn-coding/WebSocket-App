@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RootController {
     @GetMapping("/")
     public String rootHandle() {
-        return "index";
+        return "redirect:/user";
     }
 }
