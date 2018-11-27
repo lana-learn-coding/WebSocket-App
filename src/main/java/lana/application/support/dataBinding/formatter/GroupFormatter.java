@@ -1,4 +1,4 @@
-package lana.application.configuration.formatter;
+package lana.application.support.dataBinding.formatter;
 
 import lana.application.model.Group;
 import lana.application.service.GroupService;

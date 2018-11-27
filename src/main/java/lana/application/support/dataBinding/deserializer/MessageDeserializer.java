@@ -1,4 +1,4 @@
-package lana.application.configuration.deserializer;
+package lana.application.support.dataBinding.deserializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

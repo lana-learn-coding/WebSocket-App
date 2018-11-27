@@ -1,4 +1,4 @@
-package lana.application.configuration;
+package lana.application.support.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

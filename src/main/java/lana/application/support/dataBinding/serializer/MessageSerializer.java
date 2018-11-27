@@ -1,4 +1,4 @@
-package lana.application.configuration.serializer;
+package lana.application.support.dataBinding.serializer;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

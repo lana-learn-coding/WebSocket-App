@@ -1,9 +1,8 @@
 package lana.application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lana.application.configuration.deserializer.MessageDeserializer;
+import lana.application.support.dataBinding.deserializer.MessageDeserializer;
 
 import javax.persistence.*;
 

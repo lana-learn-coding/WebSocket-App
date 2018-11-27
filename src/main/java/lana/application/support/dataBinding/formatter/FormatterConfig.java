@@ -1,8 +1,6 @@
-package lana.application.configuration;
+package lana.application.support.dataBinding.formatter;
 
-import lana.application.configuration.formatter.GroupFormatter;
-import lana.application.configuration.formatter.UserFormatter;
-import lana.application.model.User;
+
 import lana.application.service.GroupService;
 import lana.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
