@@ -1,17 +1,12 @@
-let socket = new SockJS("/app/chat");
-let stompClient = Stomp.over(socket);
-
-
-stompClient.connect({},function () {
-    stompClient.subscribe("/group/1", function (response) {
-        let msg = JSON.parse(response.body);
-        console.log(response);
+$(function () {
+    let socket = new SockJS("/app/chat");
+    let stompClient = Stomp.over(socket);
+    stompClient.connect({}, function () {
+        stompClient.subscribe("/group/1", function (respone) {
+            console.log(respone.body)
+        });
+        stompClient.send("/app/1", {}, new Message("hi", 1, 1).toString());
     });
-    let msg = new Message();
-    msg.content="hello";
-    msg.group = "1";
-    msg.user = null;
-    stompClient.send("/app/1", {}, msg);
 });
 
 

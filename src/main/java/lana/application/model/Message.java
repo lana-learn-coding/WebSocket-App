@@ -1,9 +1,16 @@
 package lana.application.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lana.application.configuration.deserializer.MessageDeserializer;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "messages")
+@JsonIgnoreProperties(value = {"group","user"})
+@JsonDeserialize(using = MessageDeserializer.class)
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

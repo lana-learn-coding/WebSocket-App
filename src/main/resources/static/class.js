@@ -1,9 +1,9 @@
 class Message {
-    constructor(group, user, content) {
+    constructor(content,user,group) {
         this.id = null;
         this.content = content;
-        this.group = group;
-        this.user = user;
+        this.user = user || null;
+        this.group = group || null;
     }
 
     toString() {
@@ -12,9 +12,7 @@ class Message {
 
     static parse(jsonObject) {
         let message = new Message(
-            jsonObject.user,
             jsonObject.content,
-            jsonObject.group,
         );
         message.id = jsonObject.id;
         return message;
@@ -32,7 +30,9 @@ class Group {
     }
 
     static parse(jsonObject) {
-        let group = new Group(jsonObject.name);
+        let group = new Group(
+            jsonObject.name
+        );
         group.id = jsonObject.id;
         return group;
     }
@@ -50,8 +50,9 @@ class User {
     }
 
     static parse(jsonObject) {
-        let user = new User();
-        user.username = jsonObject.username;
+        let user = new User(
+            jsonObject.username
+        );
         user.id = jsonObject.id;
         return user;
     }

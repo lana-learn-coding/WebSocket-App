@@ -1,10 +1,12 @@
 package lana.application.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "groups")
+@JsonIgnoreProperties(value = {"messages", "user"})
 public class Group {
 
     @Id
@@ -14,16 +16,12 @@ public class Group {
     @OneToMany(mappedBy = "group")
     private List<Message> messages;
 
-    @ManyToMany(mappedBy = "groups")
+    @ManyToMany(mappedBy = "groups", fetch = FetchType.LAZY)
     private List<User> users;
 
     private String name;
 
     public Group() {
-    }
-
-    public Group(String name) {
-        this.name = name;
     }
 
     public int getId() {
