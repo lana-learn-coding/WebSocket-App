@@ -6,9 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "groups")
-@JsonIgnoreProperties(value = {"messages", "user"})
+@JsonIgnoreProperties(value = {"messages", "users"})
 public class Group {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

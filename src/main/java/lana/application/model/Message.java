@@ -1,6 +1,5 @@
 package lana.application.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lana.application.support.dataBinding.deserializer.MessageDeserializer;
 
@@ -8,18 +7,17 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "messages")
-@JsonIgnoreProperties(value = {"group","user"})
 @JsonDeserialize(using = MessageDeserializer.class)
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn
     private Group group;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn
     private User user;
 

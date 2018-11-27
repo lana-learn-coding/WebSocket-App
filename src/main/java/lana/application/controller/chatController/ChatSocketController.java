@@ -26,5 +26,4 @@ public class ChatSocketController {
         messageService.save(message);
         return messageService.findById(message.getId());
     }
-
 }

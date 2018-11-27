@@ -1,7 +1,6 @@
 package lana.application.controller.chatController;
 
 import lana.application.model.Group;
-import lana.application.model.Message;
 import lana.application.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,7 @@ public class ChatController {
                                   Model model) {
         List<Group> groupList = user.getGroups();
         model.addAttribute("user", user);
-        model.addAttribute("groups", groupList);
+        model.addAttribute("group", groupList);
         return "chat/main";
     }
 }

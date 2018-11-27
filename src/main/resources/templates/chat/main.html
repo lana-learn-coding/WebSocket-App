@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Chat Group</title>
@@ -7,11 +8,16 @@
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="/chat/class.js"></script>
-    <script src ="/chat/socketHanlde.js"></script>
+    <script src="/chat/socketHandle.js"></script>
+    <script src="/chat/chat.js"></script>
 
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<div id="chatRoom" style="height: 300px;background-color: antiquewhite">
+</div>
+<div>
+</div>
 </body>
 </html>

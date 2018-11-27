@@ -1,6 +1,6 @@
 package lana.application.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@JsonIgnoreProperties(value = {"messages","groups"})
+@JsonIgnoreProperties(value = {"messages", "groups"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -57,6 +57,7 @@ public class User {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

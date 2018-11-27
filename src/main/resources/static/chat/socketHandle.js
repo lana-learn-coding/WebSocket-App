@@ -1,13 +1,38 @@
-$(function () {
-    let socket = new SockJS("/app/chat");
-    let stompClient = Stomp.over(socket);
-    stompClient.connect({}, function () {
-        stompClient.subscribe("/group/1", function (respone) {
-            console.log(respone.body)
-        });
-        stompClient.send("/app/1", {}, new Message("hi", 1, 1).toString());
+var socket = new SockJS("/app/chat");
+var stompClient = Stomp.over(socket);
+
+function connect(func) {
+    stompClient.connect({}, () => {
+        func();
     });
-});
+}
 
+function disconect(func) {
+    stompClient.disconnect(() => {
+        func();
+    })
+}
 
+function send(message) {
+    if (message instanceof Message) {
+        stompClient.send("/app/" + message.group, {}, message.toString());
+    }
+}
+
+function subscribe(groupId, func) {
+    //TODO: check if group exist
+    stompClient.subscribe("/group/" + groupId, (response) => {
+        if (func != null) {
+            func(response);
+        }
+    })
+}
+
+function unsubscribe(groupId, func) {
+    stompClient.unsubscribe("/group/" + groupId, (response) => {
+        if (func != null) {
+            func(response)
+        }
+    })
+}
 

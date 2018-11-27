@@ -51,8 +51,21 @@ public class UserController implements Serializable {
 
     @PostMapping("/signUp")
     public String signUp(@ModelAttribute User user) {
+
         if (checkUserAndGetId(user) < 0) {
             userService.save(user);
+            //TODO default group at sign up, below test
+            user = userService.findFullById(user.getId());
+            List<Group> groups;
+            if (user.getGroups() != null) {
+                groups = user.getGroups();
+            } else {
+                groups = new ArrayList<Group>();
+            }
+            groups.add(groupService.findById(1));
+            user.setGroups(groups);
+            userService.save(user);
+            //----
             return "redirect:/user/login";
         }
         return "user/signup";
