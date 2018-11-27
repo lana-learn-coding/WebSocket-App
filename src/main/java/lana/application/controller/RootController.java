@@ -12,16 +12,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RootController {
     @Autowired
     MessageService messageService;
+
     @GetMapping("/")
     public String rootHandle() {
         return "redirect:/user";
     }
+
     @GetMapping("/test")
-    public String testURL(@ModelAttribute Message message){
+    public String testURL(@ModelAttribute Message message) {
         return "index";
     }
+
     @PostMapping("/test")
-    public String test(@ModelAttribute Message message){
+    public String test(@ModelAttribute Message message) {
         messageService.save(message);
         return "index";
     }
