@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/app/chat")
+@RequestMapping("api/app/chat")
 public class ChatController {
     @GetMapping({"", "/"})
     public String getChatMainPage(@ModelAttribute("user") User user,

@@ -30,7 +30,7 @@ public class MessageDeserializer extends StdDeserializer<Message> {
         this(null);
     }
 
-    public MessageDeserializer(Class<Message> t) {
+    public MessageDeserializer(Class<?> t) {
         super(t);
     }
 
